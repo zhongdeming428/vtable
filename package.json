@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test npx karma start test/karma.conf.js --single-run"
+    "test": "cross-env NODE_ENV=test npx karma start test/karma.conf.js --single-run",
+    "demo:dev": "cross-env NODE_ENV=demo:dev webpack-dev-server --config ./build/webpack.demo.conf.js",
+    "demo:prod": "cross-env NODE_ENV=demo:prod webpack --config ./build/webpack.demo.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +17,10 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
+    "clean-webpack-plugin": "^2.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
     "karma": "^4.1.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -30,6 +34,9 @@
     "vue-loader": "^15.7.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.32.2"
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^4.2.1"
   }
 }

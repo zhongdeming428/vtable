@@ -3,8 +3,8 @@ table {
   width: 100%;
   background: #fff;
 }
-table > thead {
-  border-bottom: 1px solid #c3c3c3;
+table > thead td {
+  border-bottom: 1px solid #e3e3e3;
 }
 table td {
   padding: 5px;
@@ -12,9 +12,10 @@ table td {
 </style>
 
 <script>
-const getAttrs = col => ({
+const getTdStyle = col => ({
+  textAlign: col.align,
   width: col.width,
-  colspan: col.colSpan
+  verticalAlign: col.vAlign
 })
 
 export default {
@@ -58,15 +59,12 @@ export default {
           col => h(
             'td',
             {
-              attrs: getAttrs(col),
-              style: {
-                textAlign: col.align
-              },
               on: {
                 click() {
                   that.onHeaderClick && that.onHeaderClick(col)
                 }
-              }
+              },
+              style: getTdStyle(col)
             },
             col.title
           )
@@ -83,14 +81,14 @@ export default {
             {
               on: {
                 click() {
-                  that.onRowClick && that.onRowClick()
+                  that.onRowClick && that.onRowClick(d)
                 }
               }
             },
             this.columns.map(
               col => h(
                 'td',
-                getAttrs(col),
+                { style: getTdStyle(col) },
                 d[col.dataIndex] || [col.render && col.render(h, d)]
               )
             )
