@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import vTable from "src";
+import vTable from "src"
+// import vTable from '../dist/main.d68ec0fd'
 
 const data = [
   { name: "Russ", age: 23, checked: false },

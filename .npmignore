@@ -1,0 +1,10 @@
+/node_modules/
+/build/
+/demo/
+/src/
+/test/
+.babelrc
+.editorconfig
+.gitignore
+index.html
+README.md
